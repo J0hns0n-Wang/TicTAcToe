@@ -13,8 +13,10 @@ class TicTacToe:
         
         
     def play(self):
-       self.get_board()
-    #    print(self.board)
+        while True:
+             board = enumerate(self.board)
+             print(list(board)[0])
+             return False
         
         
 if __name__ == "__main__":
