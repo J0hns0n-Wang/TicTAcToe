@@ -22,9 +22,9 @@ class TicTacToe:
            player_col = int(input("Col? (Only from 0 - 2)"))
            letter = "X"
            self.board[player_row][player_col] = letter
+           self.get_board()
            if "-" not in self.board:
                return False
-           self.get_board()
 
               
         
