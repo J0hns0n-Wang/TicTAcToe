@@ -13,16 +13,26 @@ class TicTacToe:
                 print(j, end=" ")
             print()
         
-        
+    
     def play(self):
        self.get_board()
        while True: 
         #    self.get_board()
-           player_row = int(input("Rows? (Only from 0 - 2)"))
-           player_col = int(input("Col? (Only from 0 - 2)"))
-           letter = "X"
-           self.board[player_row][player_col] = letter
+           player_row = int(input("Row? (Only from 1 - 3)"))
+           player_col = int(input("Col? (Only from 1 - 3)"))
+           x_count = np.count_nonzero( self.board == "X")
+           o_count = np.count_nonzero( self.board == "O")
+           dash_count = np.count_nonzero( self.board == "-")
+           if o_count >= x_count or dash_count == 9:
+               letter = "X"
+               self.board[player_row - 1][player_col - 1] = letter
+           if x_count > o_count:
+               other_letter = "O"
+               self.board[player_row - 1][player_col - 1] = other_letter
+        #    letter = "X"
+        #    self.board[player_row - 1][player_col - 1] = letter
            self.get_board()
+        #    print(x_count)
            if "-" not in self.board:
                return False
 
