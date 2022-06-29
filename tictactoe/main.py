@@ -16,8 +16,17 @@ class TicTacToe:
         
     def play(self):
        self.get_board()
-        
-        
+       while True: 
+        #    self.get_board()
+           player_row = int(input("Rows? (Only from 0 - 2)"))
+           player_col = int(input("Col? (Only from 0 - 2)"))
+           letter = "X"
+           self.board[player_row][player_col] = letter
+           if "-" not in self.board:
+               return False
+           self.get_board()
+
+              
         
 if __name__ == "__main__":
     tictactoe_game = TicTacToe()
