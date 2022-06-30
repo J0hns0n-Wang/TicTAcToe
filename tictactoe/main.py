@@ -11,6 +11,15 @@ class TicTacToe:
             for j in i:
                 print(j, end=" ")
             print()
+            
+    # def win(self, letter):
+        
+    #     #check col
+    #     if self.board[0][0] == self.board[0][1] == self.board[0][2]:
+    #         print(f"Player {letter} won!")
+            
+            
+            
 
     def play(self):
         self.get_board()
@@ -26,15 +35,47 @@ class TicTacToe:
                     letter = "X"
                 self.board[player_row - 1][player_col - 1] = letter
                 if x_count > o_count:
-                    other_letter = "O"
-                    self.board[player_row - 1][player_col - 1] = other_letter
+                    letter = "O"
+                    self.board[player_row - 1][player_col - 1] = letter
             else:
                 print("This space has already been taken")
-        #    letter = "X"
-        #    self.board[player_row - 1][player_col - 1] = letter
+
             self.get_board()
-        #    print(x_count)
+            # self.win(letter)
+            
+            #check row
+            if self.board[0][0] == self.board[0][1] == self.board[0][2] == letter:
+                print(f"Player {letter} won!")
+                return False
+            elif self.board[1][0] == self.board[1][1] == self.board[1][2] == letter:
+                print(f"Player {letter} won!")
+                return False  
+            elif self.board[2][0] == self.board[2][1] == self.board[2][2] == letter:
+                print(f"Player {letter} won!")
+                return False 
+            
+            
+            #check col
+            if self.board[0][0] == self.board[1][0] == self.board[2][0] == letter:
+                print(f"Player {letter} won!")
+                return False
+            elif self.board[0][1] == self.board[1][1] == self.board[2][1] == letter:
+                print(f"Player {letter} won!")
+                return False  
+            elif self.board[0][2] == self.board[1][2] == self.board[2][2] == letter:
+                print(f"Player {letter} won!")
+                return False 
+            
+            #check diagonal
+            if self.board[0][0] == self.board[1][1] == self.board[2][2] == letter:
+                print(f"Player {letter} won!")
+                return False
+            elif self.board[0][2] == self.board[1][1] == self.board[2][0] == letter:
+                print(f"Player {letter} won!")
+                return False     
+        
             if "-" not in self.board:
+                print("The game is a tie!")
                 return False
 
 
